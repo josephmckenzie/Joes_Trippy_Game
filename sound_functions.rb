@@ -14,3 +14,11 @@ end
 def gameover
   Sound.play('C:\Windows\Media\gameover.wav')
 end
+
+def doing_dave?
+  Sound.play('C:\Windows\Media\doing_dave.wav')
+end
+
+def what_is_it?
+  Sound.play('C:\Windows\Media\what_is_it?.wav')
+end

@@ -117,6 +117,7 @@ need_input
 		puts "You stick out your tongue and upon it Dave places something what you are not quite sure.... You ask Dave and says OH you will 
 find out soon enough."
 	elsif tongue.include?('N')
+		  what_is_it?
 		puts "Uh no Why? You ask him and he says Just do it man if you gotta ask then u dont want it... Will you do it?"
 			tongue2
 error
