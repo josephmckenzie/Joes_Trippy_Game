@@ -1,23 +1,4 @@
-def game_sounds
-  require 'win32/sound'
-  include Win32
-end
-
-def error
-  Sound.play('C:\Windows\Media\malfunction.wav')
-end
-
-def gameover
-
-  Sound.play('C:\Windows\Media\gameover.wav')
-
-end
-
-
-
-
-
-
+require_relative "sound_functions.rb"
 
 
 #I want some kind of Pschedlic music playing in Backround on a lower setting nothing to intrusive though 
@@ -37,7 +18,7 @@ def play_game
 Do you get up to answer it?"
 	@answer_door = $stdin.gets.chomp.upcase
 	if @answer_door =~ /[[:digit:]]/ || @answer_door !~ /[[:alpha:]]/ 
-error
+need_input
 	puts "\nThat was a number or a blank how about using a letter. Choose again. "
 		play_game
 	elsif @answer_door.include? ("Y")
@@ -87,7 +68,7 @@ def start_party_with_Dave
 		Do you Leave right away or smoke some bud first?"
 		leavenow = $stdin.gets.chomp.upcase 
 		if leavenow =~ /[[:digit:]]/ || leavenow !~ /[[:alpha:]]/
-error
+need_input
 			puts "Hey man you typed a number or a blank... Try again Put the blunt down for a second if you have to."
 			start_party_with_Dave
 		elsif leavenow.include?('L')
@@ -109,7 +90,7 @@ puts a little something in your drink for you..... You guys hang out for a while
 Do you hang out at the club or go for a walk?"
 start_to_trip_choice1 = $stdin.gets.chomp.upcase
 	if start_to_trip_choice1 =~ /[[:digit:]]/ || start_to_trip_choice1 !~ /[[:alpha:]]/
-error
+need_input
 		puts "That was either a number or a nothing either way man,  how about HANGING out or go for a WALK."
 		go_to_club
 	elsif start_to_trip_choice1.include? ('H') or start_to_trip_choice1.include?('S')
@@ -130,7 +111,7 @@ You guys blaze one up and sit down an chill for a wee bit...... Dave tells you t
 Do you ?"
 tongue = $stdin.gets.chomp.upcase
 	if tongue =~ /[[:digit:]]/ || tongue !~ /[[:alpha:]]/
-error
+need_input
 		puts "You must have mistyped something because thats not a valid choice"
 	elsif tongue.include?('Y')
 		puts "You stick out your tongue and upon it Dave places something what you are not quite sure.... You ask Dave and says OH you will 
@@ -148,7 +129,7 @@ def tongue2
 tongue2 = $stdin.gets.chomp.upcase 
 	if tongue2 =~ /[[:digit]]/ || tongue2 !~ /[[:alpha:]]/
 		puts "Uh hey stoner pick again as that was not a valid choice man. Try using either Yes or No. "
-error
+need_input
 	elsif tongue2.include?("Y")
 			puts""
 	
