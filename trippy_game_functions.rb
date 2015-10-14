@@ -14,24 +14,27 @@ end
 def play_game
 	# knock_at_door
 	# anyone_home
+	prompt = ">"
 	puts "\n#{@your_name} is sitting around at home watching some TV and smoking on a bong when someone knocks at the door
 Do you get up and answer it?"
 # cough_3x
-	@answer_door = $stdin.gets.chomp.upcase
-	if @answer_door =~ /[[:digit:]]/ || @answer_door !~ /[[:alpha:]]/ 
-	# need_input
-		puts "\nThat was a number or a blank #{@your_name} how about using a letter. Choose again. "
-	play_game
-	elsif @answer_door.include? ("Y")
+	print prompt
+	while @answer_door = gets.chomp.upcase
+	case @answer_door
+	when /Y/
 		answer_door_man
-	elsif @answer_door.include? ("N")
+		break
+	when "N"
 		answer_door_man
+		break
 	# error 
 	else puts "\nChoose again #{@your_name} What are you high?"
-	play_game
+	print prompt
 
 	end
 end
+end
+
 
 
 def answer_door_man
