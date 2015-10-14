@@ -1,7 +1,7 @@
 #################Ideas and Questions for Joe's Trippy Game###################### 
-1 How can i keep track of how many times they mess up trying to choose an answer?
-2 Background Soundtrack. 
-3 Buttons to click rather than type answer. 
+1 How can i keep track of how many times a question had to be repeated?
+2 Add Background Soundtrack. 
+3 Add Buttons to click rather than type answer. 
 4 Title screen(where my game name and image is and asks you your name or if you want to play would be nice even
  if i dont use images anywhere else .
 5

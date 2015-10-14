@@ -1,4 +1,4 @@
-License Agreement for Joe's Trippy Game Not a © Or a ® So go ahead and if you want to use any part
+License Agreement for Joe's Trippy Game © 04/20/4242   go ahead and if you want to use any part
 of this game for your own personal use you can but however if you are using any part of this game 
 for commerical uses then you must contact me and ask if I care which I probabaly won't but you still 
 have to ask me. All the sounds i used were gathered various places off of the internet so if I used 

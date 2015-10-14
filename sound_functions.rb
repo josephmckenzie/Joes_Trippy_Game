@@ -1,3 +1,6 @@
+#Here is where my sound functions are as well as a few ideas for sounds too.
+
+
 def game_sounds
   require 'win32/sound'
   include Win32
