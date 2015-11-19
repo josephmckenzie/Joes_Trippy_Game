@@ -58,6 +58,11 @@ def anyone_home
   Sound.play('C:\Windows\Media\anyone_home.wav')
 end
 
+def crazy_laugh
+  Sound.play('C:\Windows\Media\crazy_laugh.wav')
+end
+
+
 
 
 
