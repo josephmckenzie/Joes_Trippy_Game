@@ -1,11 +1,18 @@
 #################Ideas and Questions for Joe's Trippy Game###################### 
-1 How can i keep track of how many times a question had to be repeated?
+1 How can i keep track of how many times a question had to be repeated?(no longer applicable on web app)
 2 Add Background Soundtrack. 
-3 Add Buttons to click rather than type answer. 
-4 Title screen(where my game name and image is and asks you your name or if you want to play would be nice even
- if i dont use images anywhere else .
-5 Should I do a loop to repeat the question if wrong input or just recall the input question?
-6
-7
-8
-9
+3 Add Buttons to click rather than type answer. (done) 
+4 Title screen(where my game name and image is and asks you your name or if you want to play would be nice even if i dont use images anywhere else  (done on web app)
+5 Should I do a loop to repeat the question if wrong input or just recall the input question?(done with a loop using while when on console and no longer valid on web version) 
+6 Mediate to get a power up
+7 How do i keep progress throughout the entire game (IE: through all the pages and views )
+8 Make cut scenes (already can put in videos/moving gifs or whatnot so pretty much done)
+9How to get my user's name accessed in all views and gets/pozts (done using sessions) 
+10 How do  make a pop page so maybe i can use that for the backround soundtrac if i choose to have one
+11
+12
+13
+14
+15
+16
+17

@@ -14,14 +14,13 @@
 <br> <br>
 
 
-<%=arrested%><br> <b>Play Again Man? </b></p>
+<%=msg1%><br><%=  @params[:name] %><%=arrested%><br> <b>Play Again Man? </b></p>
 
 
 
-<form action="/startgames" method="POST"> 
-  <input type="submit" name="playgame" value="Joe's Trippy Adventure Game">
+<form action="/replay" method="POST"> 
+  <input type="submit" name="replay" value="Yes">
   
-  <input type="submit" name="playgame" value="Jade's Safari Adventure Game"><br><br>
-  <input type="submit" name="playgame" value="No I Suck & I Don't Wanna Play Again"> 
+  <input type="submit" name="replay" value="No"> 
 
 </form> 
