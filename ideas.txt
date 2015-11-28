@@ -7,12 +7,10 @@
 6 Mediate to get a power up
 7 How do i keep progress throughout the entire game (IE: through all the pages and views )
 8 Make cut scenes (already can put in videos/moving gifs or whatnot so pretty much done)
-9How to get my user's name accessed in all views and gets/pozts (done using sessions) 
-10 How do  make a pop page so maybe i can use that for the backround soundtrac if i choose to have one
-11
-12
-13
-14
-15
-16
-17
+9 How to get my user's name accessed in all views and gets/pozts (done using sessions) 
+10 How do  make a pop page so maybe i can use that for the backround soundtrack if i choose to have one
+11 get someone who can/will make me my own images animations and cut scenes for I don't have to use other cartoon's ones
+12 how to have some sort of counter that tracks how many drugs youve done and have that affect game play or at least the crazier visuals or to be able to go in to a bad trip 
+13 How to be able to print out what happend to you/your story line during you adventure to the screen at the end. 
+14 Be able to have what you have choosen throughout the game compare to what other players chose at when they played
+15 making text based images
