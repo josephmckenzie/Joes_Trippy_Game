@@ -35,7 +35,8 @@ answerdoor = params[:door]
 	elsif   answerdoor.include?('Yes') && door == 1
 				# erb :answerdoor, :locals => {:answerdoor => "#{playername} Decides to get up and answer the door", :answerdoor2 => " Oh No its The cops." }
 				erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} you answer the door & I'ts the cops, they bong lying on the table\"",
-										 :arrested => "\"Well damn man. That sucks for you #{session[:name]} They arrest you & take you to the police station....\"",:message3 =>"",:search =>""}
+										 :arrested => "\"Well damn man. That sucks for you #{session[:name]} They arrest you & take you to the police station....\"",
+										 :message3 =>"",:search =>""}
 
 	elsif   answerdoor.include?('No') && door == 0 
 		erb :davehere, :locals => {:daveishere => "It doesn't really matter #{session[:name]}, cause Your Good Buddy Dave walks in on his own.",
@@ -44,14 +45,17 @@ answerdoor = params[:door]
 	elsif   answerdoor.include?('No') && door == 1
 				# erb :answerdoorno, :locals => {:answerdoor => "#{playername} Decides not to answer the door, but it dosen't Really matter cause its the cops and the bust in."}
 		erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} I'ts the cops and they bust in the door and see the bong lying on the table\"",
-							     :arrested => "\"Well damn man. That sucks for you #{session[:name]} They arrest you & take you to the police station....\"",:message3 =>"",:search =>""}
+							     :arrested => "\"Well damn man. That sucks for you #{session[:name]} They arrest you & take you to the police station....\"",
+								 :message3 =>"",:search =>""}
 
 	end
 end
 
 get '/police' do
 
-	erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} I'ts the cops\"" ,:arrested => "\"Well damn man. That sucks for you #{session[:name]}....\"",:message3 =>"",:search =>""}
+	erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} I'ts the cops\"" ,
+							 :arrested => "\"Well damn man. That sucks for you #{session[:name]}....\"",
+							 :message3 =>"",:search =>""}
 end
 
 post '/replay' do
@@ -77,7 +81,8 @@ post '/smokefirst?' do
 	if smokefirst == "Yes"
          erb :smokefirst, :locals => {:message1 =>"#{session[:name]} & Dave decide to smoke some bud first and maybe watch a little tv.....",
 	       							  :message2 => "Hey #{session[:name]} & Dave do you guys wanna just chill at home or Leave for the club now?"} 
-	else erb :leaverightaway, :locals => {:message1 =>"#{session[:name]} & Dave roll a couple blunts real quick,and you leave for the club....", :message2 => ""}
+	else erb :leaverightaway, :locals => {:message1 =>"#{session[:name]} & Dave roll a couple blunts real quick,and you leave for the club....", 
+										  :message2 => ""}
 	end
 end
 
