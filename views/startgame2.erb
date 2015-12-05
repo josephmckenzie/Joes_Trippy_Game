@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <link rel="stylesheet" href="/style.css">
@@ -7,12 +6,11 @@
 <% if false %>
 <script type="text/javascript">
 window.onload = function() {
-window.open('/backgroundmusic','Background Music',' menubar=0, resizable=0,dependent=0,
-status=0,width=300,height=200,left=10,top=10')}
+   window.open('/backgroundmusic','Background Music',' menubar=0, resizable=0,dependent=0,status=0,width=300,height=200,left=10,top=10')}
 </script>
 <% end %>
-
 </head>
+
 
 <p><img src="joesupdatedbanner.jpg" alt="" usemap="#Map" />
 <map name="Map" id="Map">
@@ -22,6 +20,10 @@ status=0,width=300,height=200,left=10,top=10')}
     <area alt="" title="" href="/startgames" shape="poly" coords="144,31,585,31,588,5,149,3" />
     </map></p>
          
+         
+		 
+		 
+		 
 		
 <p><audio controls autoplay>
    <source src="" type="audio/mpeg">
@@ -29,26 +31,24 @@ status=0,width=300,height=200,left=10,top=10')}
 
 
 <body background="background2.jpg" bgcolor="#333333"> 
-<b><p style="color:red"> <%=message1%><br><%=message2%></p></b>
+<p style="color:red"><b><%=message1%><br><%=message2%></b></p>
  
 
 <form action="/startgames" method="POST">
-<p style="color:white">
+<p>
 What's Your Name?<br>
  <input type="text" name="name"> <br>
 <br>
 How Old are You?<br>
 <input type = "text" name="age"><br>
 <br>
-  <input type="radio" name="playgame" value="Joe's Trippy Adventure Game" checked>Joe's Trippy Adventure Game
+  <input type="radio" name="playgame" value="Joe's Trippy Adventure Game">Joe's Trippy Adventure Game
   <br>
-  <input type="radio" name="playgame" value="Jade's Safari Adventure Game">Jade's Safari Adventure Game
+  <input type="radio" name="playgame" value="Jade's Safari Adventure Game" checked>Jade's Safari Adventure Game
   <br><br>
  <input type="image" src="startgame.jpg" name="submit"> </p>
 </form>
-  </body>
-    </html>
-  
-
+</body>
+  </html>
   
   

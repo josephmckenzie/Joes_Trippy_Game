@@ -1,26 +1,36 @@
+<!DOCTYPE html>
+<html>
 <head>
 <link rel="stylesheet" href="/style.css">
 </head>
-<img src="/trippybanner.jpg"><p><audio autoplay>
+
+<p><img src="joesupdatedbanner.jpg" alt="" usemap="#Map" />
+<map name="Map" id="Map">
+    <area alt="" title="" href="/startjoe" shape="poly" coords="18,50,266,53,271,70,19,75" />
+    <area alt="" title="" href="/startjade" shape="poly" coords="299,47,579,45,584,72,303,73" />
+    <area alt="" title="" href="/info" shape="poly" coords="625,53,712,53,713,75,620,78" />
+    <area alt="" title="" href="/startgames" shape="poly" coords="144,31,585,31,588,5,149,3" />
+    </map></p>
+         
+<p><audio autoplay>
    <source src="" type="audio/mpeg">
-</audio>
+</audio></p>
 
-<body bgcolor="green">
+<br><br>
 
-<p style="color:black"><b><br><br>
-
-
-
-<img src="trippyroad.jpg">
+<p><img src="roadtoclub.gif"></p>
 
 
-<br><br></b><%=message1%><br><%=message2%><br><%=message3%><br><%=message4%></p>
+<br><br><p><%=message1%><br><%=message2%><br><%=message3%><br><%=message4%></p>
 
 
 
-<form action="/start_on_shortcut" method="POST"> 
-  <input type="submit" name="shortcut" value="Take Shortcut">
+<form action="/arrive_at_club" method="POST"> <p>
+  <input type="submit" name="atclub" value="Go to Club">
  
-  <input type="submit" name="shortcut" value="Walk The Road">
-  
+  <input type="submit" name="atclub" value="Walk in Woods">
+  </p>
 </form> 
+</html>
+
+
