@@ -6,7 +6,7 @@ enable :sessions
 # trippy = Joestrippygame.new 
 
 get '/startgames' do
-	answerphone = params[:playgame]
+	
 	erb :startgame, :locals => {:message1 => "Welcome To Joe's Games.", :message2 => "Enter your name & age to start."}
 end
 
@@ -22,6 +22,10 @@ get '/info' do
   erb :info, :locals => {:message1 => "", :message2 => "" } 
 end
 
+get '/downloads' do
+	erb :downloads, :locals => {:message1 => "Here are my games I have available for download"}
+end
+	
 post '/startgames' do
 	play = params[:playgame]
 	session[:name] = params[:name]
@@ -32,7 +36,7 @@ post '/startgames' do
 										  :message2 => "One day #{session[:name]} is sitting around Smoking a bong when someone knocks on the door.", 
 										  :message3 => "Do you get up and answer it?"}
 	elsif play == "Joe's Trippy Adventure Game" && session[:age] < 17 
-			erb 	erb :safari1, :locals => {:message1 => "#{session[:name]} You are to young to play Joe's Trippy game how about a nice Lepoard adventure game?"}
+			erb 	erb :safari1, :locals => {:message1 => "#{session[:name]} You are to young to play Joe's Trippy game how about a nice Lepoard adventure game?", :age => ""}
 	elsif play == "Jade's Safari Adventure Game" && session[:age] < 17
 			erb :safari1, :locals => {:message1 => "#{session[:name]} Chose to play Jade's Safari Adventure Game.", :age =>""}
 	else play == "Jade's Safari Adventure Game" && session[:age] > 17
@@ -133,6 +137,7 @@ post '/stick_out_tounge' do
   tounge = params[:tounge]
 
 	if tounge == "Yes"
+			session[:hits] = params[:hits]
 		erb :stick_out_your_tounge, :locals => {:yes => "You Say \" Ok and close your eyes and stick out your tounge\"", 
 												:places => "Dave places a tiny piece of paper Upon your tounge",
 												:leave => "Now that you have taken your dose Do you wanna hang out here or Leave for the club "}
@@ -233,7 +238,8 @@ post '/start_on_shortcut' do
   path = params[:shortcut] 
   takeshortcut = rand(2).floor
 	if path == "Take Shortcut"
-		erb :shortcut, :locals => {:message1 => "#{session[:name]} & Dave start down in to the woods and soon they find themselves lost", :message2 => "What do you do ?!?"}
+		erb :shortcut, :locals => {:message1 => "#{session[:name]} & Dave start down in to the woods and soon they find themselves lost", 
+									:message2 => "\"Damn dave I think we are lost\"",:message3 => "What do you do ?!?"}
 	
 	elsif path == "Walk The Road" && takeshortcut == 0
 		erb :takeroad, :locals => {:message1 => "You guys choose not to walk through the woods & instead walk the road", 
@@ -251,7 +257,8 @@ post '/arrive_at_club' do
 	if club == "Go to Club"
 		erb :club, :locals => {:message1=>" You arrive in the club ready to get your drink on.",:message2=>"Sitting down at the bar you guys order a couple drinks."}
 
-	else erb :shortcut, :locals => {:message1 => "#{session[:name]} & Dave start down in to the woods and soon they find themselves lost", :message2 => "What do you do ?!?"}
+	else erb :shortcut, :locals => {:message1 => "#{session[:name]} & Dave start down in to the woods and soon they find themselves lost", 
+									:message2 => "\"Damn dave I think we are lost\"",:message3 => "What do you do ?!?"}
 		
 	end
 	
@@ -260,19 +267,52 @@ end
 post '/in_woods' do
   whatpath = params[:path]
 	if whatpath == "Continue down Path"
-		erb :deepinwoods, :locals => {:message1 => "You get a little farther down the path when Dave says\"Hey man I think we are lost.\"" }
- 
-	else erb 
-
+		erb :deepinwoods, :locals => {:message1 => "You get a little farther down the path when Dave says\"Hey man I think we are lost.\"", 
+									  :message2 => "\"Yeah I just said that man, Who cares are we not having fun just chilling out here in nature man?\"",
+									  :message3 => "What do you want to do?"} 
+		
+	else erb :turnaround, :locals => {:message1 => "You Guys decide to turn around as you dont want to get to lost in the woods",:message2 => ""}
 	end
-
-
 end
 
+post '/sit_or_walk' do
+  sit_walk = params[:sitorwalk]
+	if sit_walk == "Sit Down and Smoke a Blunt"
+		erb :sitdown, :locals => {:message1 => "You guys sit down to take a break & smoke a blunt.", 
+								  :message2 =>"After taking a few good hits off the blunt you realize you must be tripping really hard.",
+								  :message3 => "Dave I think someone or something is watching us, Can you feel it ?",
+								  :message4 => "\"WTF Look #{session[:name]} LOOK MAN are you seeing this shit too?\""}
+
+	else erb :keepwalking, :locals => {:message1 => ""} 							  
+
+	end
+end
+
+post '/tripping_in_woods' do
+  wtf = params[:wtf] 
+	if wtf == "Yeah WTF is it?"
+		erb :wtf, :locals => {:message1 => "\"Are you seeing little creepy ass looking creatures or whatever they are?\"",
+							  :message2 => "\"Yeah man WTF are they?\"", :message3 =>"\"Let's go check em out\"", 
+							  :message4 =>"Do you get up & go check it out?"}
+   
+   #else erb :sitdown, :locals => {:message1 => "\"Are you seeing little creepy ass looking creatures or whatever they are?\"",
+								  #:message2 => "\"Yeah man WTF are they?\"", :message3 =>"\"Lets go check em out\"",
+                                  #:message4 => "Do you get up & go check it out?"}
+	end
+end
+
+post '/check_em_out' do
+  check = params[:checkem]
+	if check == "Yeah Lets Go Check It Out"
+		erb :check_em_out, :locals => {:message1 => "You get up to check out what you are seeing",:message2=>"When whatever you saw goes scampering off", 
+									   :message3 =>"Do you chase after them?"}
 
 
 
 
+
+	end
+end
 
 
 
