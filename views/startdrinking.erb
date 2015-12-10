@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
 <link rel="stylesheet" href="/style.css">
-<title> Joe's Trippy Adventure Game</title>
 </head>
 
-<p><img src="joesnewbanner.jpg" usemap="Map">
+<p><img src="joesnewbanner.jpg" alt="" usemap="#Map" />
 <map name="Map" id="Map">
     <area alt="" title="" href="/startgames" shape="poly" coords="87,8,629,9,628,45,87,44" />
     <area alt="" title="" href="/startjoe" shape="poly" coords="249,56,249,73,14,77,12,56" />
@@ -13,23 +12,29 @@
     <area alt="" title="" href="tictactoe" shape="poly" coords="529,62,621,60,623,73,533,77" />
     <area alt="" title="" href="/info" shape="poly" coords="637,58,724,57,725,78,638,78" />
     </map></p>
-	
+         
+
 <p><audio autoplay>
-<source src="" type="audio/mpeg">
-</audio></p>
+  <source src="" type="audio/mpeg">
+  </audio>
+</p>
 
+<br><br>
 
+<p>
+<img src="insideclub.jpg">
+</p>
 
-<p><img src="trippypath_turnaround.jpg"  height="300" width="300"></p>
+<br><br>
 
-<br> <p><%=message1%><br><%=message2%><br><%=message3%></p><br>
+<p>
+	<%=message1%><br><%=message2%>
+</p>
 
-<form action="/sit_or_walk" method="POST"><p>
-  <input type="submit" name="sitorwalk" value="Sit Down and Smoke a Blunt">
- 
-  <input type="submit" name="sitorwalk" value="Continue Walking & Smoke A Blunt">
-  </p>
+<form action="/start_drinking" method="POST">
+<p>
+  <input type="submit" name="path" value="Pass out some of the shots">
+  <input type="submit" name="path" value="Keep all of it to yourselves">
+</p> 
 </form> 
 </html>
-
-

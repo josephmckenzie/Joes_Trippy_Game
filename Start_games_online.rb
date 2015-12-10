@@ -264,6 +264,25 @@ post '/arrive_at_club' do
 	
 end
 
+post '/start_drinking' do
+  shots= params[:shot]
+	if shots == "Take a Shot"
+		erb :startdrinking, :locals => {:message1 =>"#{session[:name]} says to Dave \"Hey Man Lets have some shots man.\"", :message2 => "\"Hell Yeah\" Says Dave",
+										:message3 => "You guys order up a pitcher of Kamakizees and proceed to have a few." }
+	
+
+	end
+end
+
+
+post '/start_trippin_at_club' do
+
+
+
+
+
+end
+
 post '/in_woods' do
   whatpath = params[:path]
 	if whatpath == "Continue down Path"
@@ -271,7 +290,10 @@ post '/in_woods' do
 									  :message2 => "\"Yeah I just said that man, Who cares are we not having fun just chilling out here in nature man?\"",
 									  :message3 => "What do you want to do?"} 
 		
-	else erb :turnaround, :locals => {:message1 => "You Guys decide to turn around as you dont want to get to lost in the woods",:message2 => ""}
+	else erb :turnaround, :locals => {:message1 => "You Guys decide to turn around as you dont want to get to lost in the woods.",
+									  :message2 => "As you start walking back the way you came, You begin tripping really hard.",
+									  :message3 => "Before you know it you are completely lost.",
+									  :message4 => "What will you do?"}
 	end
 end
 
