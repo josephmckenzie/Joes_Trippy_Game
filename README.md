@@ -1,6 +1,6 @@
 Welcome to Joe's Magical Trippy Adventure Game.
 
-To start the Online Version First Run Start_Games_online.rb and then Goto your localhost and the go to  \startgames
+To start the Online Version First Run Start_Games_online.rb and then Go to localhost:4567/startgames
 
 I first started learning how to program using the Ruby Language about 2 months ago and am loving it, This is one of
 my first attempts at making my own game. This game will be in the style of a choose your own adventure game.
