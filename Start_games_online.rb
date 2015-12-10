@@ -104,8 +104,8 @@ post '/davehere' do
 davehere = params[:dave]
 
 	if davehere == "Yes"
-		 erb :davehere2, :locals => {:message1 =>"\"Yeah let's go man, but do you wanna smoke some before we leave??\""}
-	else erb :davehere2, :locals => {:message1 =>"\"Booo Well Alright... I guess ill just bring some with us then.\""}
+		 erb :davehere2, :locals => {:message1 =>"\"Yeah let's go man, but do you wanna smoke some before we leave??\"",:message2 => ""}
+	else erb :davehere2, :locals => {:message1 =>"\"Booo Well Alright... I guess ill just bring some with us then.\"", :message2 => ""}
 	end
 end
 
