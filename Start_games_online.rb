@@ -105,7 +105,8 @@ davehere = params[:dave]
 
 	if davehere == "Yes"
 		 erb :davehere2, :locals => {:message1 =>"\"Yeah let's go man, but do you wanna smoke some before we leave??\"",:message2 => ""}
-	else erb :davehere2, :locals => {:message1 =>"\"Booo Well Alright... I guess ill just bring some with us then.\"", :message2 => ""}
+	else erb :smokefirst, :locals => {:message1 =>"#{session[:name]} & Dave decide to smoke some bud first and maybe watch a little tv.....",
+	       							  :message2 => "After watching some TV Dave Says \"Lets go to the club man\""}
 	end
 end
 
@@ -273,7 +274,6 @@ post '/start_drinking' do
 
 	end
 end
-
 
 post '/start_trippin_at_club' do
 
