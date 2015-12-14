@@ -27,6 +27,7 @@ get '/downloads' do
 end
 	
 post '/startgames' do
+	
 	play = params[:playgame]
 	session[:name] = params[:name]
 	session[:age] = params[:age].to_i
@@ -266,22 +267,44 @@ post '/arrive_at_club' do
 end
 
 post '/start_drinking' do
-  shots= params[:shot]
-	if shots == "Take a Shot"
-		erb :startdrinking, :locals => {:message1 =>"#{session[:name]} says to Dave \"Hey Man Lets have some shots man.\"", :message2 => "\"Hell Yeah\" Says Dave",
-										:message3 => "You guys order up a pitcher of Kamakizees and proceed to have a few." }
-	
+  shots= params[:shotorbeer]
+	if shotorbeer == "Take a Shot"
+		erb :startdrinkinghard, :locals => {:message1 =>"#{session[:name]} says to Dave \"Hey Man Lets have some shots man.\"", :message2 => "\"Hell Yeah\" Says Dave",
+										    :message3 => "You guys order up a pitcher of Kamakizees and proceed to have a few." }
+	else erb:startdrinkingbeer, :locals => {:message1=> "You decide to hold off on any shots for the time being", :message2 => "and just have a couple beers." ,
+											:message3 => "Will you buy a round?"}
 
 	end
 end
 
-post '/start_trippin_at_club' do
+
+# post '/drinkingshots' do
+  # shots = params[:shots]
+	# if shots == "Pass out some of the shots"
+		# erb :
 
 
 
 
 
-end
+
+# end
+# end
+
+
+
+
+
+
+
+
+# post '/start_trippin_at_club' do
+
+
+
+
+
+# end
 
 post '/in_woods' do
   whatpath = params[:path]

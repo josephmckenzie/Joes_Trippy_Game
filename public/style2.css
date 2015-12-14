@@ -3,8 +3,10 @@ body {background-color:green;}
 h1 {color: orange;
     text-align: center;}
 h2 {color: orange;
-    text-align: center;}
-
+    text-align: center;
+}
+	
+	
 p {color: black;
     text-align: center;
 font-family: "Times New Roman";
@@ -22,4 +24,5 @@ div.transbox p {
   font-weight: bold;
   color: #000000;
 }
+
 BODY{cursor: url("http://downloads.totallyfreecursors.com/cursor_files/flashstar.ani"), url("http://downloads.totallyfreecursors.com/thumbnails/flashstar.gif"), auto;}

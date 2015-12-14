@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/style2.css">
+<link rel="stylesheet" href="/style.css">
 </head>
 
 <p><img src="joesnewbanner.jpg" alt="" usemap="#Map" />
@@ -13,25 +13,28 @@
     <area alt="" title="" href="/info" shape="poly" coords="637,58,724,57,725,78,638,78" />
     </map></p>
          
-		 
-		
-<p><audio controls autoplay>
-   <source src="" type="audio/mpeg">
-</audio></p>
 
-<b><p style="color:white"><%=message1%><br><%=age%></p></b>
-<body background="background2.jpg" bgcolor="#333333"><br>
+<p><audio autoplay>
+  <source src="" type="audio/mpeg">
+  </audio>
+</p>
 
-<p style ="color:red"> *** Sorry But I am curently coding this game. You can play what I have for the command line (dos) ***
- 
-<p><img src="confusedleopard.jpg"><br><br></p>
+<br><br>
 
+<p>
+<img src="insideclub.jpg">
+</p>
 
+<br><br>
 
-<p><a href="/downloads">Go to My Downloads</a></p>
-<p><a href="/startgames" >Go Back Home</a></p></b>
+<p>
+	<%=message1%><br><%=message2%><br><%=message3%>
+</p>
 
-  </body>
-  </html>
-  
-  
+<form action="/start_drinking" method="POST">
+<p>
+  <input type="submit" name="shots" value="Pass out some of the shots">
+  <input type="submit" name="path" value="Keep all of it to yourselves">
+</p> 
+</form> 
+</html>
