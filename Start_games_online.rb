@@ -209,7 +209,7 @@ post '/leave_starting_to_trip' do
   leave = params[:leave]
 
 	if leave == "Take Car"
-		erb :leaveincar, :locals => {:message1 => "#{session[:name]} & Dave take the car and its not long before they are really tripping hard.", 
+		erb :leaveincar, :locals => {:message1 => "#{session[:name]} & Dave take the car and its not long before they start tripping.", 
 									 :message2 => "Will you pull over and walk the rest of the way or Do you continue to drive the rest of the way?"}
 
 	else erb :leavewalking, :locals => {:message1 =>"#{session[:name]} & Dave start out walking and before no time the reach a shortcut through the woods ",
@@ -268,7 +268,7 @@ end
 
 post '/start_drinking' do
   shots= params[:shotorbeer]
-	if shotorbeer == "Take a Shot"
+	if shots == "Take a Shot"
 		erb :startdrinkinghard, :locals => {:message1 =>"#{session[:name]} says to Dave \"Hey Man Lets have some shots man.\"", :message2 => "\"Hell Yeah\" Says Dave",
 										    :message3 => "You guys order up a pitcher of Kamakizees and proceed to have a few." }
 	else erb:startdrinkingbeer, :locals => {:message1=> "You decide to hold off on any shots for the time being", :message2 => "and just have a couple beers." ,
@@ -277,34 +277,32 @@ post '/start_drinking' do
 	end
 end
 
-
-# post '/drinkingshots' do
-  # shots = params[:shots]
-	# if shots == "Pass out some of the shots"
-		# erb :
-
-
-
-
-
-
-# end
-# end
+post '/drinkingshots' do
+  shots = params[:shots]
+	if shots == "Pass out some of the shots"
+		erb :passoutshots, :locals => {:message1 => "#{session[:name]} & Dave pass out a few of the shots around", :message2 => "To everyone except Jerry cause he's a dick.",
+									   :message3 =>""}
+	else erb :passoutshots, :locals => {:message1 => "Well you decide to be a greedy little ass and not pass out any of the shots.", 
+									   :message2 => "Wow man you really think you need all them to yourselves?", :message3 => ""}
+	end
+end
 
 
+post '/justdrinkbeer' do
+  beer = params[:beer]
+	if beer == "Buy a Round"
+		erb :beer, :locals => {:message1 => "#{session[:name]} & Dave Buy a round of beers for everyone sitting at the bar," , 
+							   :message2 => "except for Jerry cause he's a dick" , :message3 => ""}
+	
+	
+	end
+end
 
 
+post '/start_trippin_at_club' do
 
+end
 
-
-
-# post '/start_trippin_at_club' do
-
-
-
-
-
-# end
 
 post '/in_woods' do
   whatpath = params[:path]
