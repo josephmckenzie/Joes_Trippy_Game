@@ -1,21 +1,22 @@
 require 'sinatra'
 require 'tilt/erb'
 enable :sessions
-
+require_relative 'start_messages.rb'
+message = Start_messages.new
 # require_relative "trippy_game_functions.rb"
 # trippy = Joestrippygame.new 
 
 get '/startgames' do
 	
-	erb :startgame, :locals => {:message1 => "Welcome To Joe's Games.", :message2 => "Enter your name & age to start."}
+	erb :startgame, :locals => {:message1 => message.welcome, :message2 => message.name_age }
 end
 
 get '/startjade' do
-	erb :startgame2, :locals => {:message1 => "So you wanna play Jade's Safari Adventure game ?", :message2 => "Enter your name & age to start."}
+	erb :startgame2, :locals => {:message1 =>message.to_start_jade, :message2 => message.name_age}
 end
 
 get '/startjoe' do
-	erb :startgame, :locals => {:message1 => "If you want to play Joe's Trippy Adventure Game", :message2 => "You must verify your name & age to start."}
+	erb :startgame, :locals => {:message1 => message.to_start_joe , :message2 => message.name_age}
 end
 
 get '/info' do
@@ -31,20 +32,22 @@ post '/startgames' do
 	play = params[:playgame]
 	session[:name] = params[:name]
 	session[:age] = params[:age].to_i
-	
+	name = session[:name]
     if play == "Joe's Trippy Adventure Game" && session[:age] > 17 
-			erb :trippygame1, :locals => {:message1 => "Great #{session[:name]} you are old enough to Play Joe's Trippy Adventure Game.",
+			erb :trippygame1, :locals => {:message1 => message.start_joe(name),
 										  :message2 => "One day #{session[:name]} is sitting around Smoking a bong when someone knocks on the door.", 
 										  :message3 => "Do you get up and answer it?"}
 	elsif play == "Joe's Trippy Adventure Game" && session[:age] < 17 
-			erb 	erb :safari1, :locals => {:message1 => "#{session[:name]} You are to young to play Joe's Trippy game how about a nice Lepoard adventure game?", :age => ""}
+			erb 	erb :safari1, :locals => {:message1 => message.too_young(name) , :age => ""}
 	elsif play == "Jade's Safari Adventure Game" && session[:age] < 17
-			erb :safari1, :locals => {:message1 => "#{session[:name]} Chose to play Jade's Safari Adventure Game.", :age =>""}
+			erb :safari1, :locals => {:message1 => message.start_jade(name), :age =>""}
 	else play == "Jade's Safari Adventure Game" && session[:age] > 17
-			erb :safari1, :locals => {:age => "Hey man Aren't You a little old to play this type of game?",
-									  :message1 => "#{session[:name]} Chose to play Jade's Safari Adventure Game."}
+			erb :safari1, :locals => {:age => message.too_old(name),
+									  :message1 => message.start_jade(name)}
 	end
 end
+
+
 
 post '/answerdoor' do 
 answerdoor = params[:door]
