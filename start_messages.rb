@@ -8,11 +8,15 @@ class Start_messages
 	def name_age
 		"Enter your name & age to start."
 	 end
-	 
+	
+	# def joes_trippy_over_17(age)
+		# "Joe's Trippy Adventure Game"  && age > 17
+	# end
+	
 	def to_start_jade
 		"So you wanna play Jade's Safari Adventure game?"
 	end
-	
+
 	
 	def to_start_joe
 		"If you want to play Joe's Trippy Adventure Game"
@@ -34,6 +38,28 @@ class Start_messages
 	def too_old(name)
 		"Hey #{name} Aren't You a little old to play this type of game?"
 	end
+	
+	def too_bad(name)
+		"\"Well To bad #{name} your gonna play again Forever & ever & ever\"" 
+	end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 end
 
