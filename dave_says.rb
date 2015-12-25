@@ -19,8 +19,7 @@ class Dave_says
 	def still_wanna_know
 		 "Do you still wanna know what it is ?"
 	end
-	
-	
+		
 	def its_acid_man(name)
 		 ["\"Man #{name} it's some blotter acid. I wanted it to be a surprise though man....\"","Do you want some or not #{name}?"].join("<br>")
 	end
@@ -29,6 +28,9 @@ class Dave_says
 		["Man #{name} thats good I didnt wanna tell you what it was anyways man."," Do you want some of what I got then #{name}?"].join("<br>")
 	end
 	
+	def nah_its_cool
+		"Nah man It's Cool your just seeing shit its the acid man."
+	end
 	
 	
 	

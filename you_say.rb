@@ -13,11 +13,11 @@ class You_say
 	end
 	
 	def did_you_see_that
-		"Hey Dave did you just see that? , To which Dave says Man your just seeing stuff relax man."
+		"Hey man you seeing what I'm seeing?"
 	end
 	
 	def i_saw_something
-		"No I saw something man. Do you wanna check it out with me?"
+		"No man I know I saw something, you wanna go check it out with me?" 
 	end
 	
 	

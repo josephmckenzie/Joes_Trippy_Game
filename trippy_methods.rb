@@ -96,7 +96,7 @@ class Trippy_methods
 	def start_with_drinks(booze)
 	
 	@drink_amount = 0
-		if booze <= 2
+		if booze <= 3
 			@drink_amount += booze
 		else @drink_amount += 1 
 		end

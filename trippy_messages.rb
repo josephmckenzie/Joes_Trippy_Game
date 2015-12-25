@@ -53,7 +53,7 @@ class Trippy_messages
 	end
 	
 	def club_or_smoke?
-		"Do you go in right away or smoke a blunt in the woods first?"
+		"Do you go in right away or go for a walk in the woods first?"
 	end
 	
 	def just_chill
@@ -83,10 +83,9 @@ class Trippy_messages
 	def just_chill
 		"You guys decide to just chill and enjoy your buzzes for a while"
 	end
-	
-	
+		
 	def see_something_trippy(name)
-		"A little while #{name} later is really starting to trip when you notice something really crazy looking ...."
+		"A little while later #{name} is really starting to trip when you notice something really crazy looking ...."
 	end
 	
 	def dose_and_leave(name)
@@ -97,8 +96,12 @@ class Trippy_messages
 		"Do you Take the car or Walk"
 	end
 	
+	def trippin_
 	
 	
+	end
+	
+		
 	
 	
 

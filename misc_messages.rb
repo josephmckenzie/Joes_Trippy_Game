@@ -8,23 +8,5 @@ class Misc_messages
 	def downloads
 		"Here are my games I have available for download"
 	end
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 end
