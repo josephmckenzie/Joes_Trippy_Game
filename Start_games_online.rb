@@ -41,37 +41,36 @@ post '/startgames' do
 	session[:age] = params[:age].to_i
 	name = session[:name]
 	
-    if play == "Joe's Trippy Adventure Game" && session[:age] > 17 
+    if play == "Joe's Trippy Adventure Game" && session[:age] >= 18
 			erb :trippygame1, :locals => {:message1 => start_message.start_joe(name),:message2 => trippy_messages.knock(name),:message3 => trippy_messages.answer, 
 										  :start_time => trippy_methods.start_time }
 	
-	elsif play == "Joe's Trippy Adventure Game" && session[:age] < 17 
-			erb :safari1, :locals => {:message1 => start_message.too_young(name) , :age => ""}
+	elsif play == "Joe's Trippy Adventure Game" && session[:age] <= 18 
+			erb :safari1, :locals => {:message1 => start_message.too_young(name) , :age => "", :start_time => trippy_methods.start_time}
 	
-	elsif play == "Jade's Safari Adventure Game" && session[:age] < 17
-			erb :safari1, :locals => {:message1 => start_message.start_jade(name), :age =>""}
+	elsif play == "Jade's Safari Adventure Game" && session[:age] <= 18
+			erb :safari1, :locals => {:message1 => start_message.start_jade(name), :age =>"", :start_time => trippy_methods.start_time}
 	
-	else play == "Jade's Safari Adventure Game" && session[:age] > 17
-			erb :safari1, :locals => {:age => start_message.too_old(name), :message1 => start_message.start_jade(name)}
+	else play == "Jade's Safari Adventure Game" && session[:age] >= 18
+			erb :safari1, :locals => {:age => start_message.too_old(name), :message1 => start_message.start_jade(name), :start_time => trippy_methods.start_time}
 	end
 end
-
 
 post '/answerdoor' do 
 answerdoor = params[:door]
 name = session[:name]
-  door = rand(1..8).floor
+  door = rand(1..8)
 	if answerdoor.include?('Yes') && door < 6
 		erb :davehere, :locals => {:daveishere => trippy_messages.its_dave(name), :message1 => dave_says.whats_up(name)}
 	
 	elsif  answerdoor.include?('Yes') && door > 6
-				erb :police, :locals => {:msg1 => trippy_messages.cops_at_door(name),:arrested => trippy_messages.arrested(name), :message3 =>"",:search =>""}
+				erb :police, :locals => {:msg1 => trippy_messages.cops_at_door(name),:arrested => trippy_messages.arrested(name), :message3 =>"",:search =>"", :stash => ""}
 
 	elsif  answerdoor.include?('No') && door < 6 
 				erb :davehere, :locals => {:daveishere => trippy_messages.dave_comes_in(name),:message1 => trippy_messages.go_to_club?(name)}
 	
-	elsif  answerdoor.include?('No') && door > 6
-				erb :police, :locals => {:msg1 => trippy_messages.cops_at_door(name), :arrested =>trippy_messages.arrested(joe),:message3 =>"",:search =>""}
+	else  answerdoor.include?('No') && door > 6
+				erb :police, :locals => {:msg1 => trippy_messages.cops_at_door(name), :arrested =>trippy_messages.arrested(name),:message3 =>"",:search =>"",:stash => ""}
 
 	end
 end
@@ -81,17 +80,17 @@ end
 post '/replay' do
 replay = params[:replay]
 name = session[:name]
-	if replay == "Joe's Trippy Adventure Game"  && session[:age] > 17 
-		erb :trippygame1, :locals => {:message1 => start_message.start_joe(name), :message2 => trippy_messages.knock(name),:message3 => trippy_messages.answer}
+	if replay == "Joe's Trippy Adventure Game"  && session[:age] >= 18 
+		erb :trippygame1, :locals => {:message1 => start_message.start_joe(name), :message2 => trippy_messages.knock(name),:message3 => trippy_messages.answer, :start_time => trippy_methods.start_time}
 	
-	elsif replay == "Joe's Trippy Adventure Game"  && session[:age] < 17
-		erb :safari1, :locals => {:message1 =>start_message.too_young(name) , :age => ""}
+	elsif replay == "Joe's Trippy Adventure Game"  && session[:age] <= 18
+		erb :safari1, :locals => {:message1 =>start_message.too_young(name) , :age => "", :start_time => trippy_methods.start_time}
 		
-	elsif replay == "Jade's Safari Adventure Game"  && session[:age] > 17 
-		erb :safari1, :locals =>  {:message1 => start_message.start_jade(name), :age =>""}
+	elsif replay == "Jade's Safari Adventure Game"  && session[:age] >= 18
+		erb :safari1, :locals =>  {:message1 => start_message.start_jade(name), :age =>"", :start_time => trippy_methods.start_time}
 	
-	elsif replay == "Jade's Safari Adventure Game"  && session[:age] < 17 
-		erb :safari1, :locals => {:age => start_message.too_old(name), :message1 => start_message.start_jade(name)}
+	elsif replay == "Jade's Safari Adventure Game"  && session[:age] <= 18 
+		erb :safari1, :locals => {:age => start_message.too_old(name), :message1 => start_message.start_jade(name), :start_time => trippy_methods.start_time}
 	else
 		erb :startgame, :locals => {:message1 =>start_message.to_bad(joe) , :message2 => ""}
 	end
@@ -112,7 +111,8 @@ post '/smokefirst?' do
 	if smokefirst == "Yes"
          erb :smokefirst, :locals => {:message1 =>trippy_messages.smoke_first(name),:message2 => trippy_messages.chill_or_leave(name)} 
 	
-	else erb :leaverightaway, :locals => {:message1 => trippy_messages.leave_now(name),:message2 => trippy_messages.pull_up_to_club(name), :message3 => ""}
+	else erb :leaverightaway, :locals => {:message1 => trippy_messages.leave_now(name),:message2 => trippy_messages.pull_up_to_club(name),
+										  :stash => trippy_methods.put_in_stash("Blunts"), :message3 => "",:hits_taken => ""}
 	end
 end
 
@@ -120,11 +120,10 @@ post '/go_to_club' do
   gotoclub= params[:club]
  name = session[:name]
 	if gotoclub == "Go to Club"
-		erb :leaverightaway, :locals => {:message1 =>trippy_messages.smoke_n_leave(name), :message2 =>trippy_messages.pull_up_to_club(name),
-										 :message3 =>trippy_messages.club_or_smoke?}
-	elsif gotoclub == "Chill at Home"
-		erb :chillathome, :locals => {:message1 => trippy_messages.just_chill,:stick_out_tounge => trippy_messages.stick_out_tounge(name),
-									  :doyou => trippy_messages.stick_out_tounge? }
+		erb :leaverightaway, :locals => {:message1 =>trippy_messages.smoke_n_leave(name),:stash => trippy_methods.put_in_stash("Blunts"),  :message2 =>trippy_messages.pull_up_to_club(name),
+										 :message3 =>trippy_messages.club_or_smoke?,:hits_taken => trippy_methods.start_acid_amount}
+	else
+		erb :chillathome, :locals => {:message1 => trippy_messages.just_chill,:stick_out_tounge => trippy_messages.stick_out_tounge(name), :doyou => trippy_messages.stick_out_tounge? }
 	end
 end
 
@@ -136,11 +135,8 @@ hits = session[:hits].to_i
 	if tounge == "Yes"
 		erb :stick_out_your_tounge, :locals => {:yes => you_say.ok_to_acid, :places => trippy_messages.places_acid_on_tounge, :leave => trippy_messages.dosed_now_leave?, 
 												:start_amount => trippy_methods.start_with_amount(hits), :hits_taken => trippy_methods.start_acid_amount, :greedy => trippy_methods.greedy_ass(hits) }
-					
-	elsif tounge == "No"
-	    erb :chillathome2, :locals => {:message1 => "You Say \" Gee I don't know man why what is it ?......\"", 
-									   :stick_out_tounge => "Dave says to you... \"Hey #{session[:name]} if you need to know than it wont be as fun..... \"", 
-									   :doyou => "Do you still wanna know what it is ?"}
+	else
+	    erb :chillathome2, :locals => {:message1 => you_say.gee_idk, :stick_out_tounge => dave_says.if_you_need_to_know, :doyou => dave_says.still_wanna_know}
 	end
 end
 
@@ -149,11 +145,9 @@ name = session[:name]
   whatisit = params[:what]
 	
 	if whatisit == "Yes"
-		erb :it_is_acid, :locals => {:its_acid_man => "\"Man #{session[:name]} it's some blotter acid. I wanted it to be a surprise though man....\"", 
-									 :msg2 => " Do you want some then #{session[:name]}?"}
+		erb :it_is_acid, :locals => {:its_acid_man => dave_says.its_acid_man(name), :msg2 => ""}
 	elsif whatisit == "No"  	
-		erb :it_is_acid, :locals => {:its_acid_man => "Man #{session[:name]} thats good I didnt wanna tell you what it was anyways man.",
-									 :msg2 => " Do you want some of what I got then #{session[:name]}?"}
+		erb :it_is_acid, :locals => {:its_acid_man => dave_says.dont_want_to_know(name), :msg2 => ""}
 	end
 end
 	
@@ -161,12 +155,8 @@ post '/acid' do
    tounge = params[:tounge]  
 name = session[:name]
 	if tounge == "Yes"
-	    erb :stick_out_your_tounge, :locals => {:yes => "You Say \" Ok and close your eyes and stick out your tounge\"", 
-	                                            :places => "Dave places a tiny piece of paper Upon your tounge" ,
-												:leave => "Now that you have taken your dose Do you wanna Stay here or Leave for the club "}
-  
-	else erb :it_is_acid, :locals => {:its_acid_man => "\" Sorry #{session[:name]} you need to be tripping in order to play this game....\"", 
-									  :msg2 => " Will you take some #{session[:name]} or do you wish to quit now and go play something else?"}
+	    redirect to('/stick_out_tounge')
+  	else erb :it_is_acid, :locals => {:its_acid_man => trippy_messages.have_to_trip(name), :msg2 => ""}
 	end
 end
 
@@ -174,13 +164,9 @@ post '/justdosed' do
 	justdosed = params[:justdosed]
 	name = session[:name]
 	if justdosed == "Stay"
-		erb :homerotto, :locals => {:message1 => "You guys decide to just chill at your place and enjoy your buzzes for a while", 
-									:message2 => "A little while #{session[:name]} later is really starting to trip when you spot something crazy looking out side....",
-									:message3 => "Hey Dave did you just see that? , To which Dave says Man your just seeing stuff relax man.", 
-									:message4 => "No I saw something man. Do you wanna go check it out?"}
-									
-	else erb :leavetripping, :locals => {:message1 =>"After having taken a thier doses #{session[:name]} & Dave get ready for the club and leave....",
-										 :message2 => "Do you Take the car or Walk"}
+		erb :homerotto, :locals => {:message1 => trippy_messages.just_chill, :message2 =>trippy_messages.see_something_crazy(name),	:message3 => you_say.did_you_see_that, :message4 => you_say.i_saw_something}
+
+	else erb :leavetripping, :locals => {:message1 => trippy_messages.dose_and_leave(name), :stash =>trippy_methods.put_in_stash("Blunts"), :message2 =>trippy_messages.take_car_or_walk}
 	end
 end
 
@@ -194,7 +180,8 @@ post '/trippin_at_home' do
 	
 	else
 		erb :leaveincar, :locals => {:message1 => "#{session[:name]} & Dave take the car and its not long before they are really tripping hard.", 
-									 :message2 => "Will you pull over and walk the rest of the way or Do you continue to drive the rest of the way?"}
+									 :message2 => "Will you pull over and walk the rest of the way or Do you continue to drive the rest of the way?",
+									 :added => trippy_methods.just_added("Blunts"),:stash =>trippy_methods.put_in_stash("Blunts")}
 	end
 end
 
@@ -221,7 +208,7 @@ post '/trippin_in_car' do
 										:message4 => "Do you go in to the club or Go for a walk in the nearby woods?"} 
 	elsif driving.include?('Continue to Drive') && drive == 1
 		erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} The cops are behind us \"" ,
-								 :arrested => "\"Well damn man\". They search you & Dave and find the weed and what Dave's had left too.",
+								 :arrested => "\"Well damn man\". They search you & Dave and find the weed and what Dave's had left too.",:stash => trippy_methods.delete_from_stash("Blunts"),
 								 :message3 =>"\"That sucks for you #{session[:name]}....\"",:search =>""}
 		
 	else erb :leavewalking, :locals => {:message1 =>"#{session[:name]} & Dave pull over and start walking down the road and before no time the reach a shortcut through the woods ",
@@ -244,7 +231,7 @@ name = session[:name]
 	elsif path == "Walk The Road" && takeshortcut == 1 
 		erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} The cops pull up beside you \"" ,
 								 :arrested => "\"Well damn man.\"" , :search => "They search you & Dave and find your weed and what Dave's had stashed for later too.",
-								 :message3 =>"\"That sucks for you #{session[:name]}....\""}
+								 :message3 =>"\"That sucks for you #{session[:name]}....\"", :stash => trippy_methods.delete_from_stash("Blunts")}
 	end
 end
 
@@ -252,8 +239,7 @@ post '/arrive_at_club' do
 name = session[:name]
   club = params[:atclub]
 	if club == "Go to Club"
-		erb :club, :locals => {:message1=>" You arrive in the club ready to get your drink on.",:message2=>"Sitting down at the bar you guys order a couple drinks."}
-
+		erb :club, :locals => {:message1=>" You arrive in the club ready to get your drink on.",:message2=>"Sitting down at the bar you guys order a couple drinks.",:drink_start => trippy_methods.start_with_drinks(booze)}
 	else erb :shortcut, :locals => {:message1 => "#{session[:name]} & Dave start down in to the woods and soon they find themselves lost", 
 									:message2 => "\"Damn dave I think we are lost\"",:message3 => "What do you do ?!?"}
 		
@@ -266,7 +252,7 @@ name = session[:name]
   shots= params[:shotorbeer]
 	if shots == "Take a Shot"
 		erb :startdrinkinghard, :locals => {:message1 =>"#{session[:name]} says to Dave \"Hey Man Lets have some shots man.\"", :message2 => "\"Hell Yeah\" Says Dave",
-										    :message3 => "You guys order up a pitcher of Kamakizees and proceed to have a few." }
+										    :message3 => "You guys order up a pitcher of Kamakizees and proceed to have a few.",:drink_start => trippy_methods.start_drink_amount}
 	else erb:startdrinkingbeer, :locals => {:message1=> "You decide to hold off on any shots for the time being", :message2 => "and just have a couple beers." ,
 											:message3 => "Will you buy a round?"}
 
@@ -319,7 +305,7 @@ post '/sit_or_walk' do
 name = session[:name]
   sit_walk = params[:sitorwalk]
 	if sit_walk == "Sit Down and Smoke a Blunt"
-		erb :sitdown, :locals => {:message1 => "You guys sit down to take a break & smoke a blunt.", 
+		erb :sitdown, :locals => {:message1 => "You guys sit down to take a break & smoke a blunt.", :stash => trippy_methods.delete_from_stash("Blunts"),
 								  :message2 =>"After taking a few good hits off the blunt you realize you must be tripping really hard.",
 								  :message3 => "Dave I think someone or something is watching us, Can you feel it ?",
 								  :message4 => "\"WTF Look #{session[:name]} LOOK MAN are you seeing this shit too?\""}

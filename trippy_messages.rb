@@ -58,7 +58,7 @@ class Trippy_messages
 	
 	def just_chill
 		 "You guys decide to just chill out for a while......"
-		end
+	end
 		
 	def stick_out_tounge(name)
 		"Dave says to you... \"Hey #{name} close your eyes and stick out your tounge... \""
@@ -76,16 +76,39 @@ class Trippy_messages
 		"Now that you have taken your dose Do you wanna hang out here or Leave for the club "
 	end
 	
+	def have_to_trip(name)
+		 ["\" Sorry #{name} you need to be tripping in order to play this game....\""," Will you take some #{name} or do you wish to quit now and go play something else?"].join("<br>")
+	end
+	
+	def just_chill
+		"You guys decide to just chill and enjoy your buzzes for a while"
+	end
+	
+	
+	def see_something_trippy(name)
+		"A little while #{name} later is really starting to trip when you notice something really crazy looking ...."
+	end
+	
+	def dose_and_leave(name)
+		"After having taken a thier doses #{name} & Dave get ready for the club and leave...."
+	end
+	
+	def take_car_or_walk
+		"Do you Take the car or Walk"
+	end
 	
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 	
 end
