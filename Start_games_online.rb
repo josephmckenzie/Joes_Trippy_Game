@@ -129,7 +129,7 @@ post '/go_to_club' do
 	end
 end
 
-get '/stick_out_tounge' do
+post '/stick_out_tounge' do
 tounge = params[:tounge]
 name = session[:name]
 session[:hits] = params[:hits]
