@@ -84,7 +84,7 @@ class Trippy_messages
 		"You guys decide to just chill and enjoy your buzzes for a while"
 	end
 		
-	def see_something_trippy(name)
+	def see_something_crazy(name)
 		"A little while later #{name} is really starting to trip when you notice something really crazy looking ...."
 	end
 	
@@ -96,7 +96,11 @@ class Trippy_messages
 		"Do you Take the car or Walk"
 	end
 	
-	def trippin_
+	def take_car(name)
+		"#{name} & Dave take the car and its not long before they are really tripping hard."
+	end
+	
+	
 	
 	
 	end

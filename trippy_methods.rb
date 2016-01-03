@@ -66,7 +66,7 @@ class Trippy_methods
 
 	@stash = [] unless @stash
 	@stash << increase_stash
-		"You just added #{increase_stash} to your stash"
+		just_added(increase_stash)
 	end
 
 	def just_added(increase_stash)
@@ -82,13 +82,15 @@ class Trippy_methods
 
 		if @stash.include?(decrease_stash)
 		   @stash.delete(decrease_stash)
-				"You used #{decrease_stash} from your stash"
-		else
-			not_in_stash
 		end
 			whats_in_stash
 	end
 
+	def used_from_stash(decrease_stash)
+		"You used #{decrease_stash} from your stash"
+	end
+	
+	
 	def not_in_stash
 		'Hey Man that item is not in your stash, what are you high?!!'
 	end
@@ -106,7 +108,7 @@ class Trippy_methods
 		"You Started off with taking #{@drink_amount} drinks. Be careful how much you drink."
 	end
 	
-	def greedy_ass(booze)
+	def greedy_ass_booze(booze)
 		if booze >= 3
 			["Damn man don't be greedy...Ill give 1 drink for now.", "Don't Worry we will get more"].join("<br>")
 		end

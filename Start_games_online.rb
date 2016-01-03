@@ -139,8 +139,7 @@ hits = session[:hits].to_i
 												:leave => trippy_messages.dosed_now_leave?,:start_amount => trippy_methods.start_with_amount(hits), 
 												:hits_taken => trippy_methods.start_acid_amount, :greedy => trippy_methods.greedy_ass(hits)}
 	else
-	    erb :chillathome2, :locals => {:message1 => you_say.gee_idk, :stick_out_tounge => dave_says.if_you_need_to_know(name), 
-									   :doyou => dave_says.still_wanna_know}
+	    erb :chillathome2, :locals => {:message1 => you_say.gee_idk, :stick_out_tounge => dave_says.if_you_need_to_know(name), :doyou => dave_says.still_wanna_know}
 	end
 end
 
@@ -161,7 +160,7 @@ name = session[:name]
 hits = session[:hits].to_i
 	if tounge == "Yes"
 	    erb :stick_out_your_tounge, :locals => {:yes => you_say.ok_to_acid, :places => trippy_messages.places_acid_on_tounge, 
-												:leave => trippy_messages.dosed_now_leave?,:start_amount => trippy_methods.start_with_amount(2), 
+												:leave => trippy_messages.dosed_now_leave?,:start_amount => trippy_methods.start_with_amount(), 
 												:hits_taken => trippy_methods.start_acid_amount, :greedy => trippy_methods.greedy_ass(hits)}
 												
   	else erb :it_is_acid, :locals => {:its_acid_man => trippy_messages.have_to_trip(name), :msg2 => ""}
@@ -188,7 +187,7 @@ post '/trippin_at_home' do
 								   :its_cool => dave_says.nah_its_cool,:message3 => you_say.i_saw_something}
 	
 	else
-		erb :leaveincar, :locals => {:message1 => "#{session[:name]} & Dave take the car and its not long before they are really tripping hard.", 
+		erb :leaveincar, :locals => {:message1 => trippy_messages.take_car(name), 
 									 :message2 => "Will you pull over and walk the rest of the way or Do you continue to drive the rest of the way?",
 									 :added => trippy_methods.just_added("Blunts"),:stash =>trippy_methods.put_in_stash("Blunts")}
 	end
@@ -217,7 +216,7 @@ post '/trippin_in_car' do
 										:message4 => "Do you go in to the club or Go for a walk in the nearby woods?"} 
 	elsif driving.include?('Continue to Drive') && drive == 1
 		erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} The cops are behind us \"" ,
-								 :arrested => "\"Well damn man\". They search you & Dave and find the weed and what Dave's had left too.",:stash => trippy_methods.delete_from_stash("Blunts"),
+								 :arrested => "\"Well damn man\". They search you & Dave and find the weed and what Dave's had left too.",
 								 :message3 =>"\"That sucks for you #{session[:name]}....\"",:search =>""}
 		
 	else erb :leavewalking, :locals => {:message1 =>"#{session[:name]} & Dave pull over and start walking down the road and before no time the reach a shortcut through the woods ",
@@ -240,7 +239,7 @@ name = session[:name]
 	elsif path == "Walk The Road" && takeshortcut == 1 
 		erb :police, :locals => {:msg1 => "\"Fuck #{session[:name]} The cops pull up beside you \"" ,
 								 :arrested => "\"Well damn man.\"" , :search => "They search you & Dave and find your weed and what Dave's had stashed for later too.",
-								 :message3 =>"\"That sucks for you #{session[:name]}....\"", :stash => trippy_methods.delete_from_stash("Blunts")}
+								 :message3 =>"\"That sucks for you #{session[:name]}....\""}
 	end
 end
 
@@ -297,6 +296,7 @@ end
 
 post '/start_trippin_at_club' do
 name = session[:name]
+
 end
 
 post '/in_woods' do
@@ -318,7 +318,7 @@ post '/sit_or_walk' do
 name = session[:name]
   sit_walk = params[:sitorwalk]
 	if sit_walk == "Sit Down and Smoke a Blunt"
-		erb :sitdown, :locals => {:message1 => "You guys sit down to take a break & smoke a blunt.", :stash => trippy_methods.delete_from_stash("Blunts"),
+		erb :sitdown, :locals => {:message1 => "You guys sit down to take a break & smoke a blunt.",
 								  :message2 =>"After taking a few good hits off the blunt you realize you must be tripping really hard.",
 								  :message3 => "Dave I think someone or something is watching us, Can you feel it ?",
 								  :message4 => "\"WTF Look #{session[:name]} LOOK MAN are you seeing this shit too?\""}
