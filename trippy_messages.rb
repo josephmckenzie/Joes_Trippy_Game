@@ -108,14 +108,3 @@ class Trippy_messages
 		
 	
 	
-
-
-
-
-
-
-
-
-
-	
-end
