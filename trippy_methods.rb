@@ -150,11 +150,46 @@ class Trippy_methods
 		"You have taken #{@acid_amount} hits of acid & drank #{drink_amount} drinks of booze."
 	end
 	
+	def start_pool
+		@davewon = 0
+		@youwon = 0
+	end
+	
+	
+	def pool_games(randomwin)
+	
+	
+		if randomwin == 0
+			@youwon += 1
+			
+		else @davewon += 1
+			
+		end
+			
+	end
+	
+	
+	def pool_games_won(name)
+		"#{name} Has won #{@youwon} games and Dave has won #{@davewon} time(s) "
+	end
 
+	def you_won
+		"Congradulations  you won this round"
+	end
+	
+	def dave_won
+		"Well damn  you suck Dave wins this round"
+	end
 
-
-
-
+	def who_won(randomwin)
+		if randomwin == 0
+			you_won
+		else dave_won
+		end
+	end
+	
+	
+		
 
 
 

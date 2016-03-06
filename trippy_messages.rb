@@ -80,7 +80,7 @@ class Trippy_messages
 		 ["\" Sorry #{name} you need to be tripping in order to play this game....\""," Will you take some #{name} or do you wish to quit now and go play something else?"].join("<br>")
 	end
 	
-	def just_chill
+	def just_chill()
 		"You guys decide to just chill and enjoy your buzzes for a while"
 	end
 		
@@ -100,11 +100,56 @@ class Trippy_messages
 		"#{name} & Dave take the car and its not long before they are really tripping hard."
 	end
 	
-	
-	
+	def greedy_shots()
+		"Well you decide to be a greedy little ass and not pass out any of the shots."
 	
 	end
 	
-		
+	def need_all_that()
+		"Wow man you really think you need all them to yourselves?"
+	end
+
+	def jerry_is_a_dick()
+		"everyone except Jerry cause he's a dick."
+	end
+
+	def round_of_shots(name)
+		"#{name} & Dave pass out a few of the shots around"
+	end
+	
+	def round_of_beers(name)
+		"#{name} & Dave Buy a round of beers for everyone sitting at the bar,"
+	end
+	
+	def greedy_beer(name)
+		"#{name} decides not be cool and buy a round"
+	end
+	
+	def pull_over_and_walk()
+		"Will you pull over and walk the rest of the way or Do you continue to drive the rest of the way?"
+	end
+	
+	def start_trippin_in_car(name)
+		"#{name} & Dave take the car and its not long before they start tripping."
+	end
+	
+	def take_shortcut()
+		"Do you take the shortcut through the woods?"
+	end
+	
+	def start_out_walking(name)
+		"#{name} & Dave start out walking and before no time the reach a shortcut through the woods "
+	end
+	
+	def random_says()
+		"Because the random function says so"
+	end
+	
+	
+	
+end
+
+
+	
 	
 	

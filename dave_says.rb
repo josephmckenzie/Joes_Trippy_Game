@@ -32,6 +32,11 @@ class Dave_says
 		"Nah man It's Cool your just seeing shit its the acid man."
 	end
 	
+	def wanna_play_pool(name)
+		"Dave Says hey #{name} wanna play a round? "
+	end
+	
+	
 	
 	
 	
