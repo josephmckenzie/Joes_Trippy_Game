@@ -1,1 +1,1 @@
-web: bundle exec ruby TicTacToe_Frontend.rb.rb -p $PORT
+web: bundle exec ruby Start_games_online.rb -p $PORT
