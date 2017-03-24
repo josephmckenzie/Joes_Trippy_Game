@@ -14,7 +14,7 @@ dave_says = Dave_says.new
 you_say = You_say.new
 trippy_methods = Trippy_methods.new 
 
-get '/startgames' do
+get '/' do
 	erb :startgame, :locals => {:message1 => start_message.welcome, :message2 => start_message.name_age }
 end
 
